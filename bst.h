@@ -5,14 +5,9 @@
 #include <algorithm>
 using namespace std;
 
-// do not add any other library.
-// modify parts as directed by assignment text and comments here.
-
 template <class T>
 class BST {
 private:
-    // Define TreeNode for the second phase (Binary Search Tree)
-    /* DO NOT CHANGE */
     struct TreeNode {
         std::string key;
         T data;
@@ -25,7 +20,7 @@ private:
     TreeNode* root;
 
 
-public: // Do not change.
+public: 
 
     BST();
     ~BST();
@@ -40,8 +35,8 @@ public: // Do not change.
     std::vector<TreeNode> tree2vector(TreeNode* root);
     void print();
     
-private:// you may add your own utility member functions here.
-    void removeAllNodes(TreeNode* &r){  // My function 
+private:
+    void removeAllNodes(TreeNode* &r){ 
         if(r){
             removeAllNodes(r->left);
             removeAllNodes(r->right);
@@ -49,7 +44,7 @@ private:// you may add your own utility member functions here.
         }
     }
     
-    void insert(TreeNode* &r, const std::string key, const T& value){  // My function
+    void insert(TreeNode* &r, const std::string key, const T& value){  
         if(r==NULL){
             r=new TreeNode(key, value);
         }
@@ -61,7 +56,7 @@ private:// you may add your own utility member functions here.
         }
     }
     
-    bool search(TreeNode* r, std::string value) const {  // My function
+    bool search(TreeNode* r, std::string value) const {  
         if(r==NULL){ 
             return false;
         }else if(value == r->key){
@@ -79,7 +74,7 @@ private:// you may add your own utility member functions here.
         return r;
     }
     
-    void remove(TreeNode*& r, std::string key){  // My function
+    void remove(TreeNode*& r, std::string key){  
         if(r==NULL){
             return;
         }else if(key < r->key){
@@ -109,7 +104,7 @@ private:// you may add your own utility member functions here.
         }
     }
     
-    void print(TreeNode* node, std::string indent, bool last, bool isLeftChild); // Do not change.
+    void print(TreeNode* node, std::string indent, bool last, bool isLeftChild); 
     
 };
 
@@ -230,14 +225,12 @@ BST<T>* BST<T>::intersection(BST<T>* bst) {
     return X;
 }
 
-/* DO NOT CHANGE */
 template <class T>
 void BST<T>::print() {
     print(root, "", true, false);
 
 }
 
-/* DO NOT CHANGE */
 template <class T>
 void BST<T>::print(TreeNode* node, string indent, bool last, bool isLeftChild) {
     if (node != NULL) {
