@@ -76,27 +76,3 @@ BST<Movie>* UserInterface::intersectionWatchedMovies(string username1, string us
     BST<Movie>* newBST = user1->intersection(user2->getMovies());
     return newBST;
 }
-
-/*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-*/
