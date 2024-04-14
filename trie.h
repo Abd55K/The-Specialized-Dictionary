@@ -8,8 +8,7 @@ using namespace std;
 template <class T>
 class Trie {    
 private:
-    // Define TrieNode for the first phase (Trie)
-    /* DO NOT CHANGE */
+    
     struct TrieNode {
         static const int ALPHABET_SIZE = 128;
         TrieNode* children[ALPHABET_SIZE];
@@ -29,7 +28,7 @@ private:
 
     TrieNode* root;
 
-public: // Do not change.
+public:
 
     Trie(); 
     ~Trie();
@@ -41,9 +40,9 @@ public: // Do not change.
     void wildcardSearch(const std::string &wildcardKey, std::vector<T*> &results); 
     void print(); 
 
-private: // you may add your own utility member functions here.
+private:
 
-    void removeAllNodes(TrieNode* &r){  // My function
+    void removeAllNodes(TrieNode* &r){
         if(r){
             delete r->data;
             for(int i=0;i<r->ALPHABET_SIZE;i++){
@@ -53,7 +52,7 @@ private: // you may add your own utility member functions here.
         }
     }
     
-    void wildcardSearch(TrieNode* r, int i , const std::string &wildcardKey, std::vector<T*> &results){ // My function
+    void wildcardSearch(TrieNode* r, int i , const std::string &wildcardKey, std::vector<T*> &results){ 
         
         if(i==wildcardKey.size()) return;
         
@@ -150,17 +149,16 @@ private: // you may add your own utility member functions here.
         }
     }
     
-    void print(const std::string& primaryKey); // Do not change this line.
-    void printTrie(TrieNode* node, const std::string& currentKey); // Do not change this line.
+    void print(const std::string& primaryKey); 
+    void printTrie(TrieNode* node, const std::string& currentKey); 
     
 };
-/* DO NOT CHANGE */
+
 template <class T>
 Trie<T>::Trie() : root(new TrieNode('\0')) {}
 
 template <class T>
 Trie<T>::~Trie() {
-    /* IMPLEMENT THIS */
     
     removeAllNodes(root);
     
@@ -168,7 +166,7 @@ Trie<T>::~Trie() {
 
 template <class T>
 Trie<T>& Trie<T>::insert(const string& key) {
-    /* IMPLEMENT THIS */
+    
     int size=key.size();
     if(size==0) return *this;
     TrieNode* r=root;
@@ -187,7 +185,7 @@ Trie<T>& Trie<T>::insert(const string& key) {
 
 template <class T>
 T* Trie<T>::search(std::string username) {
-    /* IMPLEMENT THIS */
+    
     int size=username.size();
     TrieNode* r=root;
     bool B=false;
@@ -209,7 +207,7 @@ T* Trie<T>::search(std::string username) {
 
 template <class T>
 void Trie<T>::remove(std::string username) {
-    /* IMPLEMENT THIS */
+   
     int size=username.size();
     TrieNode* r=root;
     for(int i=0;i<size;i++){
@@ -227,7 +225,6 @@ void Trie<T>::remove(std::string username) {
 
 template <class T>
 void Trie<T>::findStartingWith(string prefix,vector<T*> &results) {
-    /* IMPLEMENT THIS */
     
     wildcardSearch(prefix+"*", results);
     
@@ -235,18 +232,17 @@ void Trie<T>::findStartingWith(string prefix,vector<T*> &results) {
 
 template <class T>
 void Trie<T>::wildcardSearch(const std::string &wildcardKey, std::vector<T*> &results) {
-    /* IMPLEMENT THIS */
     
     wildcardSearch(root, 0, wildcardKey, results);
     
 }
 
-/* DO NOT CHANGE */
+
 template<class T>
 void Trie<T>::print() {
     print("");
 }
-/* DO NOT CHANGE */
+
 template <class T>
 void Trie<T>::print(const std::string& primaryKey) {
     if (primaryKey.empty()) {
@@ -267,7 +263,7 @@ void Trie<T>::print(const std::string& primaryKey) {
 
         }
     }
-/* DO NOT CHANGE */
+
 template <class T>
 void Trie<T>::printTrie(TrieNode* node, const std::string& currentKey) {
     if (!node) {
