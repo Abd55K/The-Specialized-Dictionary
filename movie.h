@@ -9,7 +9,7 @@ private:
     int year;
     float rating;
 
-public:// do not change.
+public:
     Movie() : movieName(""), year(0), rating(0) {}
     
     Movie(std::string movieName, int year, float rating) : movieName(movieName), year(year), rating(rating) {}
